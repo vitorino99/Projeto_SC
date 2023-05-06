@@ -7,7 +7,6 @@ def filter_dictionary(dictionary):
             filteredDictionary[key] = value
     return filteredDictionary
 
-# utilizado para remover valores de chaves menores que a média de todos os valores
 
 
 def filter_dictionary2(dictionary, mean):
@@ -23,35 +22,31 @@ def coincidences_function(ciphertext):
     dictionaryWithTriagrams = {}
     for i in range(len(ciphertext)):
         valueTriagram = ciphertext[i:i+3]  # 0 ao 2 # tps
-        # ignora o que é menor que trigrama
-        # no fim do texto normalmente é coletado algo menor que trigrama. Isso é descartado
         if len(valueTriagram) < 3:
             break
-        if dictionaryWithTriagrams.get(valueTriagram):  # 'trigrama' :
+        if dictionaryWithTriagrams.get(valueTriagram): 
             dictionaryWithTriagrams[valueTriagram].append(
-                i)  # 'tps' : [0,2065]
+                i) 
         else:
             dictionaryWithTriagrams[valueTriagram] = [i]
 
-    # queremos apenas trigramas que ocorram mais de 2 vezes
     filtered_dictionary = filter_dictionary(dictionaryWithTriagrams)
     return gettingThePossibleKeyLength(filtered_dictionary)
 
 
 def gettingThePossibleKeyLength(dictionary):
-    dictionaryListed = list(dictionary)  # ['exi', 'ttg', 'acw']
+    dictionaryListed = list(dictionary)  
     dictionaryOfPossibleKeyLength = {}
 
     novoDicionario = {}
 
-    for key in dictionaryListed:  # ['exi']
-        listOfValues = dictionary[key]  # [6, 752, 1816]
-        for possiblekeys in range(3, 21):  # 2 a 19
-            for i in range(len(dictionary[key])):  # 3
+    for key in dictionaryListed:  
+        listOfValues = dictionary[key]  
+        for possiblekeys in range(3, 21):  
+            for i in range(len(dictionary[key])):  
                 try:
-                    spacing = listOfValues[i] - listOfValues[i+1]  # 752 - 6
-                    if spacing % possiblekeys == 0:  # possui x no spacing
-                        # { 2: [0,1] }
+                    spacing = listOfValues[i] - listOfValues[i+1]  
+                    if spacing % possiblekeys == 0:  
                         if dictionaryOfPossibleKeyLength.get(possiblekeys):
                             dictionaryOfPossibleKeyLength[possiblekeys].append(
                                 i)
@@ -59,11 +54,11 @@ def gettingThePossibleKeyLength(dictionary):
                                 dictionaryOfPossibleKeyLength[possiblekeys])
                         else:
                             dictionaryOfPossibleKeyLength[possiblekeys] = [
-                                i]  # {2: [0]}
+                                i]  
                 except:
                     break
 
-    # dicionario filtrado considerando a média dos valores
+
     novoDicionario = dict(sorted(novoDicionario.items()))
 
     total = 0
@@ -88,7 +83,7 @@ def encontrar_letra(dicionario1, dicionario2):
         combinado = zip(dicionario1.values(), dicionario_girado.values())
 
         for i, (valor1, valor2) in enumerate(combinado):
-            if i >= 8:
+            if i >= 10:
                 break
             diferenca = abs(valor1 - valor2)
             diferencas.append(diferenca)

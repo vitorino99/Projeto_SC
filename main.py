@@ -9,4 +9,5 @@ cipher_text = enctyption(plaintext_filtered, key)
 decoded_text = decryption(cipher_text, key)
 
 print("Cipher_text", cipher_text)
+print('')
 print("Decoded_text",  decoded_text)

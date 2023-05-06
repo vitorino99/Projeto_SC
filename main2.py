@@ -73,6 +73,9 @@ def play_game(lf, dict_of_dicts_frequency):
 
             if operation == 'P':
                 letra = encontrar_letra(lf, table_frequency)
+                print(lf)
+                print()
+                print(table_frequency)
                 key += letra
                 print("Letra adicionada:", letra)
                 resultado.append(letra)
