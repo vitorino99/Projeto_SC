@@ -6,6 +6,17 @@ O arquivo main contem a parte da cifração e decifração da mensagem. Pra roda
 
 O arquivo main2 contem a parte da quebra da cifra. Essa parte utiliza analise das frequencias, quanto maior for a mensagem mais provavel de conseguir acertar, caso a mensagem seja pequena demais não será possivel encontrar o tamanho da chave e assim não será possivel decifrar. Para rodar é só rodar o 'main2'
 
+
+TUTORIAL:
+
+Na parte da cifra e decifra é totalmente intuitivo, o programa irá pedir para digitar uma mensagem a ser cifrada e depois uma chave de cifração. Ao fim irá retornar a função cifrada e depois uma decifração da mensagem.
+
+
+Na parte da quebra de cifra, o usuario irá digitar uma mensagem cifrada e o programa irá utilizar da frequencia de repetições na mensagem cifrada para tentar adivinhar a quantidade de caracteres que possui a chave, usuario irá escolher com qual ele quer tentar (É POSSIVEL ACONTECER DE POSSUIREM 2 SEMELHANTES, SE ISSO ACONTECER É QUESTÃO DE TENTATIVA). Após isso, o programa irá comparar a frequencia das letras da lingua escolhida com a frequencia das letras na mensagem cifrada e assim decodificar a mensagem.
+
+Novamente, é importante lembrar que quanto maior a mensagem mais facil será para o programa acertar, também é importante lembrar que em alguns poucos casos o programa pode acabar errando uma das letras por pussuirem frequencias semelhantes. O programa também printa o dicionario de frequencias ao executar, caso aconteça algum erro de "adivinhação" da letra, é possivel procurar de forma manual as letra com frequencia semelhante, provavelmente será essa.
+
+
 Casos de teste:
 
 primeira_mensagem_cifrada_portugues = 
